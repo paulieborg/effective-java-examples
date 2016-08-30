@@ -1,16 +1,14 @@
 sudo: required
 language: java
-jdk:
-- oraclejdk8
-- oraclejdk7
+  - oraclejdk8
 install:
-- curl --insecure https://www.jpm4j.org/install/script | sudo sh
-- sudo jpm install com.codacy:codacy-coverage-reporter:assembly
+  - curl --insecure https://www.jpm4j.org/install/script | sudo sh
+  - sudo jpm install com.codacy:codacy-coverage-reporter:assembly
 script:
-- mvn test
-- mvn clean package
+  - mvn test
+  - mvn clean package
 after_success:
-- codacy-coverage-reporter -l Java -r ./target/site/jacoco/jacoco.xml
+  - codacy-coverage-reporter -l Java -r ./target/site/jacoco/jacoco.xml
 env:
   global:
     secure: GMItPBH3lvvojumAIX72ujI56SCFK/GXUi5VjJog1y9+Kl0RJjn6DpEGQwePldmI54DcQeAY7SRXyy7FQ9qFEIt+HovInhc+rzOkEsIvcbVc0oDqrgG/7pPxuiQ6TmG7300F9vOMFi0dZmr6iE16QezINCn22P+hGFYI0d7bW5ngDQwefe0jMKAWycupV9gZgQl49ZwEL+KZacNR+fNzgQsAu+1HDPHHvL45oK/wpMU/61LxyfxK38Sq0Lr7xh8slzj/4JnmKEbcZZzoSenBljiXuEiGNeb1XF4SxawnP2v4Uhn0K5jLaQqhQfQyNgeTy9VpfEuC2rNmbppsN7hVlSsetQ4Jes3HCChmJE4txcHLN1bkqSVAcbsiT/UwBbAXnCDGDEGSJw/X5b8nF43Spzep4XyGqk96cTDxUnnIH46leNf3yeIF1xYaZ8xm4p30qlmmRjs8fcBsyKd0pT7Z3J8tEzUC7qgEp1ymzXBnjXybPnv4BlSV2mKtVTbLmlS7FqxfJSjlUi3VSb5PmOCOg9M5PtwJbv9rMPDR4SOrFc5zHjalN+s/bQ+dQe8CDUfh+iD9US4tjVUsJM+7mWjDY6HpsiHlnAHgftrDQJ4egLjHx/lyfwkdAm39lZaKnRiWrfUFPpS/tbFnxi3MHxN+PE94U0aFrwuGYDSfvv74r28=
