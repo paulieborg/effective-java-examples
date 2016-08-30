@@ -4,7 +4,7 @@ jdk:
   - oraclejdk8
   - oraclejdk7
 install:
- - sudo curl --insecure https://www.jpm4j.org/install/script | sh
+ - curl --insecure https://www.jpm4j.org/install/script | sudo sh
  - sudo jpm install com.codacy:codacy-coverage-reporter:assembly
 script:
  - mvn test
